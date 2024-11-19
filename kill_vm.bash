@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-vm="ubuntu20.04"
+vm="mininet"
 virsh shutdown $vm
 
 

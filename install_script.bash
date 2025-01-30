@@ -9,7 +9,7 @@ sudo apt-add-repository ppa:fish-shell/release-3 -y
 sudo apt update
 
 
-sudo apt install -y build-essential python3-ven fish stow
+sudo apt install -y build-essential python3-ven fish stow nodejs npm net-tools
 
 
 git clone https://github.com/TaiseiYokoshima/dotfiles

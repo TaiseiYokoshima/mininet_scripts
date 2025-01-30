@@ -22,5 +22,9 @@ sed -i 's/\(.*\)python2 python3/\1python3/' ./util/install.sh
 cd ~
 
 
+source ~/.bashrc
 ./mininet/util/install.sh -a
+
+
+sudo chsh -s /bin/fish mininet
 

@@ -1,10 +1,15 @@
 #!/bin/bash
 
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+mininet_setup="$SCRIPT_DIR/setup_mininet.bash"
 
 sudo apt update
-
 sudo apt install -y build-essential
+source ~/.bashrc
+
+
+
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 
@@ -35,15 +40,13 @@ stow nvim
 
 
 
-
-
-
-
 cargo install zellij
 cargo install exa
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-mininet_setup="$SCRIPT_DIR/setup_mininet.bash"
+cd ~
 
 
 bash "$mininet_setup"
+
+
+

@@ -19,5 +19,5 @@ sed -i 's/\(.*\)python2 python3/\1python3/' ./util/install.sh
 cd ~
 
 
-./miniet/util/install.sh -a
+./mininet/util/install.sh -a
 

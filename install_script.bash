@@ -1,19 +1,16 @@
 #!/bin/bash
 
 
-# sudo apt update
-# sudo apt upgrade -y
-#
-# sudo apt install build-essential
-# sudo apt install python3-venv
-#
-#
-# sudo snap install nvim --classic
-#
-# sudo apt-add-repository ppa:fish-shell/release-3 -y
-# sudo apt update
-# sudo apt install fish
-# sudo apt install stow
+sudo apt update
+sudo apt upgrade -y
+
+sudo snap install nvim --classic
+sudo apt-add-repository ppa:fish-shell/release-3 -y
+sudo apt update
+
+
+sudo apt install -y build-essential python3-ven fish stow
+
 
 git clone https://github.com/TaiseiYokoshima/dotfiles
 cd ~/dotfiles
@@ -26,7 +23,7 @@ stow nvim
 
 
 
-# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 
 

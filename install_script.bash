@@ -28,11 +28,9 @@ sudo -E bash nodesource_setup.sh
 
 
 sudo apt update
-
 sudo apt-get install -y nodejs
-
-
 source ~/.bashrc
+rm ./nodesource_setup.sh
 
 
 git clone https://github.com/TaiseiYokoshima/dotfiles

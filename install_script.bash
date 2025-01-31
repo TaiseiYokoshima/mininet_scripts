@@ -33,6 +33,8 @@ source ~/.bashrc
 rm ./nodesource_setup.sh
 
 
+
+cd ~
 git clone https://github.com/TaiseiYokoshima/dotfiles
 
 

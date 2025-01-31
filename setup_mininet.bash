@@ -24,7 +24,3 @@ cd ~
 
 source ~/.bashrc
 ./mininet/util/install.sh -a
-
-
-sudo chsh -s /bin/fish mininet
-

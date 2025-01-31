@@ -20,10 +20,21 @@ sudo apt-add-repository ppa:fish-shell/release-3 -y
 sudo apt update
 
 
-sudo apt install -y python3-venv fish stow nodejs npm net-tools ripgrep zip python3-pip
+sudo apt install -y python3-venv fish stow npm net-tools ripgrep zip python3-pip curl
 source ~/.bashrc
 
+curl -fsSL https://deb.nodesource.com/setup_23.x -o nodesource_setup.sh
+sudo -E bash nodesource_setup.sh
 
+
+sudo apt update
+sudo apt-get install -y nodejs
+source ~/.bashrc
+rm ./nodesource_setup.sh
+
+
+
+cd ~
 git clone https://github.com/TaiseiYokoshima/dotfiles
 
 
@@ -40,11 +51,12 @@ stow nvim
 
 
 
-cargo install zellij
-cargo install exa
+~/.cargo/bin/cargo install zellij
+~/.cargo/bin/cargo install exa
 
 cd ~
 
+sudo chsh -s /bin/fish mininet
 
 bash "$mininet_setup"
 

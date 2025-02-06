@@ -82,7 +82,6 @@ class Dumbbell_LINK_PROP_APPLIED(Topo):
 
 
 def perfTest(net):
-    # print( "Testing bandwidth between h1 and h4" )
     h1, h4 = net.get( 'h1', 'h4' )
     net.iperf( (h1, h4) , port=7777)
 
@@ -158,14 +157,14 @@ def bin_test(net):
 
 if __name__ == '__main__':
     # setLogLevel( 'info' )
-    # topo = Dumbbell()
-    # net = Mininet( topo=topo, host=CPULimitedHost, link=TCLink )
+    topo = Dumbbell()
+    net = Mininet( topo=topo, host=CPULimitedHost, link=TCLink )
     # net.start()
 
-    topo = binary_test() 
-    net = Mininet( topo=topo )
+    # topo = binary_test() 
+    # net = Mininet( topo=topo )
     net.start()
-    bin_test(net)
+    # bin_test(net)
 
 
     #
@@ -174,7 +173,7 @@ if __name__ == '__main__':
     # print("_"*20)
     #
     # print("first test")
-    # perfTest(net)
+    perfTest(net)
     # net.stop()
     
 

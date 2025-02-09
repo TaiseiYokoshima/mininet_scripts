@@ -116,5 +116,11 @@ if __name__ == '__main__':
     net.start()
     # ping_test(net)
     # bin_test(net)
-    rust_bin(net)
+    # rust_bin(net)
+
+
+    node = net.get("h1")
+    output = node.cmd("ls")
+    print("cmd ran")
+
 

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+cd ~/udt
+./build
+
+cd ~/scripts
+
+sudo rm -rf data
+
+sudo mn -c 2> /dev/null
+
+sudo ./udt.py

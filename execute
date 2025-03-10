@@ -1,5 +1,0 @@
-#!/bin/bash
-
-
-sudo mn -c 2> /dev/null
-sudo ./dumbbell.py

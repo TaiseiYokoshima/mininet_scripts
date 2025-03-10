@@ -33,18 +33,46 @@ def cmd(node, cmds):
         output = node.cmd(cmd)
         print(output)
 
+# def change_bandwidth(intf, bw):
+#     cmd = f"tc qdisc change dev {intf} root handle 1: tbf rate {bw}mbit burst 15000 latency 50ms"
+#     print(f"Changing {intf} bandwidth to {bw} Mbps...")
+#     Node("root").cmd(cmd)
+
+
 def change_bandwidth(intf, bw):
-    cmd = f"tc qdisc change dev {intf} root handle 1: tbf rate {bw}mbit burst 15000 latency 50ms"
-    print(f"Changing {intf} bandwidth to {bw} Mbps...")
-    Node("root").cmd(cmd)
+    print(f"Changing {intf} bandwidth to {bw} Mbps (OVS)...")
+    Node("root").cmd(f"ovs-vsctl set Interface {intf} ingress_policing_rate={bw * 1000}")
+    Node("root").cmd(f"ovs-vsctl set Interface {intf} ingress_policing_burst=1500")
+
 
 def udt_test(net, stream):
     stream = "u"
+    bandwidth = 10000
     server = net.get( 'server' )
     client = net.get( 'client' )
 
     switch = net.get( 's1' )
-    interface = switch.intfNames()[2]
+
+    if0 = switch.intfNames()[0]
+    if1 = switch.intfNames()[1]
+    if2 = switch.intfNames()[2]
+
+
+
+    # change_bandwidth(if0, bandwidth)
+    # change_bandwidth(if1, bandwidth)
+    # change_bandwidth(if2, bandwidth)
+
+    time_stamp = None
+
+
+    # CLI(net)
+
+
+
+
+
+
 
     server_cmd = f"/home/mininet/udt/b.udt_server {stream}"
     server_process = server.popen(server_cmd, shell=True)
@@ -65,8 +93,8 @@ def udt_test(net, stream):
 
 
     time_stamp = 0 
-    sleep(3)
-    change_bandwidth(interface, 100)
+    sleep(2)
+    change_bandwidth(if2, 500)
     time_stamp = int(time.time() * 1000)
 
 
@@ -78,6 +106,10 @@ def udt_test(net, stream):
 
 
     print("test finished")
+
+
+    if time_stamp is None:
+        time_stamp = ""
 
 
     os.system(f"/home/mininet/udt/graph_data.py {time_stamp}")
